@@ -190,3 +190,7 @@ function disableClick (event){
     event.preventDefault();
 
 }
+
+//game buttons and event handlers
+
+startBtn.addEventListener("click", startQuiz);
