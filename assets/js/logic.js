@@ -191,6 +191,40 @@ function disableClick (event){
 
 }
 
+function saveScore() {
+
+    initials = initialsInputArea.value;
+
+    //score = score;
+
+    let scores = retrieveScores();
+
+    scores.push({initials,score});
+
+    scores.sort((a,b) => b.score - a.score);
+
+    localStorage.setItem('scores',JSON.stringify(scores));
+
+    redirectToHighScores();
+
+}
+
+function retrieveScores(){
+
+    const scores = JSON.parse(localStorage.getItem('scores')) || [];
+    
+    return scores;
+
+}
+
+function redirectToHighScores() {
+
+    const highScoresRelativePath = "highscores.html";
+
+    window.location.href = highScoresRelativePath;
+
+}
+
 //game buttons and event handlers
 
 startBtn.addEventListener("click", startQuiz);
