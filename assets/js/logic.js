@@ -225,6 +225,48 @@ function redirectToHighScores() {
 
 }
 
+function validateUserInitials() {
+
+    initials = initialsInputArea.value;
+
+    const areValid = /^[a-zA-Z]{2,3}$/.test(initials);
+    
+    return areValid;
+
+}
+
+function displayInvalidInputMessage() {
+
+    feedbackDisplayArea.innerHTML = `Please provide valid initials
+                                     (min. 2 characters, max. 3 characters,
+                                     letters only and no spaces)`; 
+                                     
+        
+    feedbackDisplayArea.classList.remove("hide");
+
+}
+
+function validateAndSaveUserInput(){
+    
+    const areValid = validateUserInitials();
+
+    if(areValid){
+
+        saveScore();
+
+        redirectToHighScores();
+
+    }
+    else{
+
+        displayInvalidInputMessage();
+
+    }
+
+}
+
 //game buttons and event handlers
 
 startBtn.addEventListener("click", startQuiz);
+
+submitBtn.addEventListener('click', validateAndSaveUserInput);
