@@ -265,8 +265,52 @@ function validateAndSaveUserInput(){
 
 }
 
+function goBackToStartScreen() {
+
+    endScreen.classList.add("hide");
+
+    feedbackDisplayArea.classList.add("hide");
+
+    startScreen.classList.remove("hide");
+
+    setInitialState();
+   
+}
+
+function setInitialState() {
+
+    score = 0;
+
+    currentQuestionIndex = 0;
+
+    initialsInputArea.value = '';
+
+    validationDisplayArea.innerHTML = '';
+
+    feedbackDisplayArea.innerHTML = '';
+
+}
+
+function quitQuiz() {
+
+    startScreen.classList.add("hide");
+
+    linkToHighScores.style.display = "none"; //hide or alternatively linkToHighScores.remove()
+
+    timerBox.style.display = "none";
+
+    gameOverScreen.style.textAlign = "center";
+
+    gameOverScreen.classList.remove("hide");
+
+}
+
 //game buttons and event handlers
 
 startBtn.addEventListener("click", startQuiz);
 
+quitBtn.addEventListener('click', quitQuiz);
+
 submitBtn.addEventListener('click', validateAndSaveUserInput);
+
+cancelBtn.addEventListener('click', goBackToStartScreen);
