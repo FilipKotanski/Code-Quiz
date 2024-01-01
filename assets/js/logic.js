@@ -152,6 +152,25 @@ function showQuestion(questionObject) {
 
 }
 
+/*alternative showQuestion function goes with alternative checkAnswer function*/
+/*function showQuestion(questionObject) {
+
+    questionDisplayArea.textContent = questionObject.question;
+
+    questionObject.choices.forEach(choice => {
+
+        const button = document.createElement("button");
+
+        button.textContent = choice;
+
+        button.addEventListener("click", () => checkAnswer(choice, questionObject.correctAnswer));
+        
+        choicesDisplayArea.appendChild(button);
+
+    });
+
+}*/
+
 function checkAnswer(event) {
 
     const correctSound = document.getElementById("correctSound");
@@ -184,6 +203,38 @@ function checkAnswer(event) {
     setNextQuestion();
 
 }
+
+/*alternative checkAnswer function goes with alternative showQuestion function*/
+/*function checkAnswer(userAnswer, correctAnswer) {
+
+    const correctSound = document.getElementById("correctSound");
+
+    const wrongSound = document.getElementById("wrongSound");
+
+    if (userAnswer === correctAnswer) {
+
+        score++;
+
+        validationDisplayArea.innerHTML = "<hr><br>Correct!";
+
+        correctSound.play();
+
+    } 
+    else {
+    
+        timer -= 10;
+
+        validationDisplayArea.innerHTML = "<hr><br>Wrong!";
+
+        wrongSound.play();
+
+    }
+
+    currentQuestionIndex++;
+
+    setNextQuestion();
+
+}*/
 
 function disableClick (event){
 
